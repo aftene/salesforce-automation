@@ -19,7 +19,7 @@ public class Utils {
     {
         String returnedProp = null;
         try {
-            FileReader propertiesFile = new FileReader("/Users/p3700509/Desktop/AutomationProjects/salesforce-automation/src/test/resources/credentials.properties");
+            FileReader propertiesFile = new FileReader("/Users/p3700471/Documents/Salesforce/salesforce-automation/src/test/resources/credentials.properties");
             Properties property = new Properties();
             property.load(propertiesFile);
             returnedProp = property.getProperty(propName);

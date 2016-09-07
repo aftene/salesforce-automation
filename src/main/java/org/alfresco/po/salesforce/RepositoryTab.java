@@ -11,7 +11,7 @@ public class RepositoryTab {
     @FindBy(id="alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_TABCONTAINER_tablist_alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_MYFILES")
     private WebElement personalFilesTab;
 
-    @FindBy(id="alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_TABCONTAINER_tablist_alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_REPOSITORY")
+    @FindBy(xpath=".//*[@id='alfresco_layout_AlfTabContainer___62595e6e-4210-4d7a-8af8-11dfaf1b3653_TABCONTAINER_tablist_alfresco_layout_AlfTabContainer___62595e6e-4210-4d7a-8af8-11dfaf1b3653_SITES']")
     private WebElement repositoryTab;
 
     @FindBy(id="alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_TABCONTAINER_tablist_alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_SITES")
@@ -19,6 +19,10 @@ public class RepositoryTab {
 
     @FindBy(id="alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_TABCONTAINER_tablist_alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_SEARCH'")
     private WebElement searchTab;
+
+
+    @FindBy(xpath = ".//*[@id='content']")
+    private WebElement test;
 
     public WebElement getPersonalFilesTab()
     {
@@ -28,6 +32,11 @@ public class RepositoryTab {
     public WebElement getRepositoryTab()
     {
         return repositoryTab;
+    }
+
+    public WebElement getTest()
+    {
+        return test;
     }
 
     public WebElement getSitesTab()

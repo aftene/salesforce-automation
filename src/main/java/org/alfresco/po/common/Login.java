@@ -41,8 +41,8 @@ public class Login extends Utils {
         loginPasswordTextfield = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("page_x002e_components_x002e_slingshot-login_x0023_default-password")));
         loginButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("page_x002e_components_x002e_slingshot-login_x0023_default-submit-button")));
 
-        PageFactory.initElements(driver, RepositoryTab.class);
-   //     PageFactory.initElements(driver, WorkPanel.class);
+        repositoryTab = PageFactory.initElements(driver, RepositoryTab.class);
+        workPanel = PageFactory.initElements(driver, WorkPanel.class);
 
     }
 
@@ -61,11 +61,15 @@ public class Login extends Utils {
     {
         TypeText(loginUsernameTextfield, GetProperty("alfrescoUserName"));
         TypeText(loginPasswordTextfield, GetProperty("alfrescoPassword"));
+
+
         loginButton.click();
 
-        repositoryTab.getPersonalFilesTab().click();
-    //    workPanel.getCreateButton().click();
-    //    workPanel.getCreateFolderButton().click();
+        repositoryTab.getTest().isDisplayed();
+
+        repositoryTab.getRepositoryTab().click();
+        workPanel.getCreateButton().click();
+        workPanel.getCreateFolderButton().click();
 
 
     }
