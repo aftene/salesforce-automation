@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by p3700509 on 05/09/16.
  */
-public class workPanel {
+public class WorkPanel {
 
     @FindBy(xpath = ".//*[@id='alfresco_documentlibrary_AlfCreateContentMenuBarPopup___bc8b2097-6ec6-4953-8f74-80c567f6d1f8_text']")
     private WebElement createButton;

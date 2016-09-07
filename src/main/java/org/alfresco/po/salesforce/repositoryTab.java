@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by p3700509 on 05/09/16.
  */
-public class repositoryTab {
+public class RepositoryTab {
 
     @FindBy(id="alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_TABCONTAINER_tablist_alfresco_layout_AlfTabContainer___2bc69a0a-b2b5-41c2-8195-fe66c893cabc_MYFILES")
     private WebElement personalFilesTab;
