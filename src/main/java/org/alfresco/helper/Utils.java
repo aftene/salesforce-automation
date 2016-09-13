@@ -12,16 +12,17 @@ import java.util.Properties;
  */
 public class Utils {
 
-    public static WebDriver driver;
-    protected static WebDriverWait wait;
+    protected String timeout = "50";
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
-    public String GetProperty(String propName)
+    public String GetProperty(String propertiesFile ,String propName)
     {
         String returnedProp = null;
         try {
-            FileReader propertiesFile = new FileReader("/Users/p3700471/Documents/Salesforce/salesforce-automation/src/test/resources/credentials.properties");
+            FileReader properties = new FileReader("/Users/p3700509/Desktop/AutomationProjects/salesforce-automation/src/test/resources/" + propertiesFile);
             Properties property = new Properties();
-            property.load(propertiesFile);
+            property.load(properties);
             returnedProp = property.getProperty(propName);
         }
         catch (Exception e)
