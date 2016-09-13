@@ -1,15 +1,15 @@
 package org.alfresco.smoke;
 
+import org.alfresco.helper.Utils;
 import org.alfresco.po.common.Login;
 import org.alfresco.po.salesforce.RepositoryTab;
 import org.alfresco.po.salesforce.WorkPanel;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
 
 /**
  * Created by p3700509 on 05/09/16.
  */
-public class C2961CreateFolder {
+public class C2961CreateFolder extends Utils{
 
     Login login = new Login();
     RepositoryTab repositoryTab;
@@ -21,12 +21,14 @@ public class C2961CreateFolder {
     public void CreateFolder()
     {
         login.loginToAlfresco();
-        WebElement gig;
-        gig = workPanel.getCreateButton();
-        gig.click();
-//        repositoryTab.getPersonalFilesTab().click();
-//        workPanel.getCreateButton().click();
-//        workPanel.getCreateFolderButton().click();
+        workPanel.getCreateButton().click();
+        workPanel.getCreateFolderButton().click();
+
+        TypeText(workPanel.getCreateFolderName(), "folder_name_test");
+        TypeText(workPanel.getCreateFolderTitle(), "folder_title_test");
+        TypeText(workPanel.getCreateFolderDescription(), "folder_description_test");
+
+        workPanel.getCreateFolderDialogCreateButon().click();
 
     }
 }

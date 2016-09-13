@@ -3,7 +3,6 @@ package org.alfresco.po.salesforce;
 import org.alfresco.helper.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
@@ -13,19 +12,40 @@ public class WorkPanel extends Utils {
 
 
     private String createButtonCSSClass = ".alf-create-icon";
-    //@FindBy(xpath = ".//*[@id='alfresco_documentlibrary_AlfCreateContentMenuBarPopup___bc8b2097-6ec6-4953-8f74-80c567f6d1f8_text']")
-    private WebElement createButton=wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(createButtonCSSClass)));
+    private String createFolderXPath = ".//td[contains(text(), 'Folder')]";
+    private String createFolderNameName = "prop_cm_name";
+    private String createFolderTitleName = "prop_cm_title";
+    private String createFolderDescriptionName = "prop_cm_description";
+    private String createFolderDialogCreateButonID = "ALF_CREATE_CONTENT_DIALOG_OK";
 
-    @FindBy(xpath = ".//*[@id='alfresco_documentlibrary_AlfCreateContentMenuItem___453dacb6-5ae9-4be6-8025-bf0534241d12_text']")
-    private WebElement createFolderButton;
 
-    public WebElement getCreateButton()
-    {
+    public WebElement getCreateButton() {
+        WebElement createButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(createButtonCSSClass)));
         return createButton;
     }
 
-    public WebElement getCreateFolderButton()
-    {
+    public WebElement getCreateFolderButton() {
+        WebElement createFolderButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(createFolderXPath)));
         return createFolderButton;
+    }
+
+    public WebElement getCreateFolderName(){
+        WebElement createFolderName = wait.until(ExpectedConditions.presenceOfElementLocated(By.name(createFolderNameName)));
+        return createFolderName;
+    }
+
+    public WebElement getCreateFolderTitle(){
+        WebElement createFolderTile = wait.until(ExpectedConditions.presenceOfElementLocated(By.name(createFolderTitleName)));
+        return createFolderTile;
+    }
+
+    public WebElement getCreateFolderDescription(){
+        WebElement createFolderDescription = wait.until(ExpectedConditions.presenceOfElementLocated(By.name(createFolderDescriptionName)));
+        return createFolderDescription;
+    }
+
+    public WebElement getCreateFolderDialogCreateButon(){
+        WebElement createFolderDialogCreateButon = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(createFolderDialogCreateButonID)));
+        return createFolderDialogCreateButon;
     }
 }

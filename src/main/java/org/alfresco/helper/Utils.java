@@ -12,9 +12,9 @@ import java.util.Properties;
  */
 public class Utils {
 
-    protected String timeout = "50";
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    protected static final String timeout = "50";
+    protected static WebDriver driver;
+    protected static WebDriverWait wait;
 
     public String GetProperty(String propertiesFile ,String propName)
     {
