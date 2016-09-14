@@ -2,6 +2,7 @@ package org.alfresco.helper;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileReader;
@@ -16,11 +17,11 @@ public class Utils {
     protected static WebDriver driver;
     protected static WebDriverWait wait;
 
-    public String GetProperty(String propertiesFile ,String propName)
+    public static String GetProperty(String propertiesFile ,String propName)
     {
         String returnedProp = null;
         try {
-            FileReader properties = new FileReader("/Users/p3700509/Desktop/AutomationProjects/salesforce-automation/src/test/resources/" + propertiesFile);
+            FileReader properties = new FileReader("/Users/p3700471/Documents/Salesforce/salesforce-automation/src/test/resources/" + propertiesFile);
             Properties property = new Properties();
             property.load(properties);
             returnedProp = property.getProperty(propName);
@@ -36,6 +37,12 @@ public class Utils {
     {
         webElement.clear();
         webElement.sendKeys(text);
+    }
+
+    protected void waitForWebElementToDisplay(WebDriver webDriver, WebElement webElement)
+    {
+        WebDriverWait webDriverWait = new WebDriverWait(webDriver, Integer.parseInt(timeout) / 1000);
+        wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
 
