@@ -20,10 +20,10 @@ public class FormDialog {
     @FindBy(name = "prop_cm_description")
     private WebElement descriptionTextInput;
 
-    @FindBy(css="button[id$='submit-button']")
+    @FindBy(id = "ALF_CREATE_CONTENT_DIALOG_OK")
     private WebElement saveButton;
 
-    @FindBy(css="button[id$='cancel-button']")
+    @FindBy(css = "button[id$='cancel-button']")
     private WebElement cancelButton;
 
 
