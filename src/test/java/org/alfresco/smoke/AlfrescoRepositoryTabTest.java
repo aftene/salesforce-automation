@@ -2,36 +2,39 @@ package org.alfresco.smoke;
 
 import org.alfresco.helper.Utils;
 import org.alfresco.po.common.Login;
+import org.alfresco.po.salesforce.AlfrescoRepositoryTabList;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 /**
- * Created by p3700471 on 14/09/16.
+ * Created by p3700509 on 14/09/16.
  */
-public class TestRunner {
+public class AlfrescoRepositoryTabTest {
 
     private WebDriver webDriver;
-
-    @BeforeClass
+    @Before
     public void setUp()
     {
         webDriver = new FirefoxDriver();
         webDriver.get(Utils.GetProperty("salesforcePages.properties","alfrescoRepositoryTab"));
+
+        PageFactory.initElements(webDriver, Login.class).loginToAlfresco();
     }
 
     @Test
-    public void loginTest()
-    {
-        //initialize login page objects
-        Login loginPage = PageFactory.initElements(webDriver, Login.class);
+    public void TabTest(){
 
-        loginPage.enterUserName();
-        loginPage.enterPassword();
-        loginPage.clickLoginButton();
+        AlfrescoRepositoryTabList tabListTest = PageFactory.initElements(webDriver, AlfrescoRepositoryTabList.class);
+
+        tabListTest.getSitesTab().click();
+        tabListTest.getSearchTab().click();
+        tabListTest.getRepositoryTab().click();
+        tabListTest.getPersonalFilesTab().click();
+
     }
 
     @AfterClass
@@ -40,6 +43,4 @@ public class TestRunner {
         webDriver.close();
         webDriver.quit();
     }
-
-
 }

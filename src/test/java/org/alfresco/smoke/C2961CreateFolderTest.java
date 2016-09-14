@@ -1,8 +1,8 @@
 package org.alfresco.smoke;
 
 import org.alfresco.helper.Utils;
-import org.alfresco.po.common.LoginPO;
-import org.alfresco.po.salesforce.WorkPanelPO;
+import org.alfresco.po.common.Login;
+import org.alfresco.po.salesforce.WorkPanel;
 import org.alfresco.po.share.FormDialog;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 /**
  * Created by p3700471 on 14/09/16.
  */
-public class CreateFolderTest {
+public class C2961CreateFolderTest {
 
     private WebDriver webDriver;
 
@@ -25,20 +25,18 @@ public class CreateFolderTest {
         webDriver.get(Utils.GetProperty("salesforcePages.properties","alfrescoRepositoryTab"));
 
         //initialize login page objects
-        LoginPO loginPage = PageFactory.initElements(webDriver, LoginPO.class);
-
-        loginPage.enterUserName();
-        loginPage.enterPassword();
-        loginPage.clickLoginButton();
+        PageFactory.initElements(webDriver, Login.class).loginToAlfresco();
     }
 
     @Test
     public void createFolderTest()
     {
-        WorkPanelPO workPanelPO = new WorkPanelPO(webDriver);
+        WorkPanel workPanel = PageFactory.initElements(webDriver, WorkPanel.class);
 
-        workPanelPO.getCreateButton().click();
-        FormDialog formDialog = workPanelPO.openCreateFolderDialog();
+        workPanel.getCreateButton().click();
+        workPanel.getCreateFolderButton().click();
+
+        FormDialog formDialog = PageFactory.initElements(webDriver, FormDialog.class);
 
         formDialog.getDescriptionTextInput().sendKeys("folder_name_test");
         formDialog.getNameTextInput().sendKeys("folder_name_test");

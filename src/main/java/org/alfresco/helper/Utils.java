@@ -21,7 +21,7 @@ public class Utils {
     {
         String returnedProp = null;
         try {
-            FileReader properties = new FileReader("/Users/p3700471/Documents/Salesforce/salesforce-automation/src/test/resources/" + propertiesFile);
+            FileReader properties = new FileReader("/Users/p3700509/Desktop/AutomationProjects/salesforce-automation/src/test/resources/" + propertiesFile);
             Properties property = new Properties();
             property.load(properties);
             returnedProp = property.getProperty(propName);
@@ -45,8 +45,8 @@ public class Utils {
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
-
-
-
+    private void openSalesforceTab(String tabToOpen){
+        driver.get(GetProperty("salesforcePages.properties",tabToOpen));
+    }
 
 }
