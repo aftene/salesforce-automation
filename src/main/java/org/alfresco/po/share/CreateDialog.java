@@ -9,7 +9,8 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
 /**
  * Created by p3700471 on 14/09/16.
  */
-public class FormDialog {
+public class CreateDialog
+{
 
     @FindBy(name = "prop_cm_name")
     private WebElement nameTextInput;
@@ -20,10 +21,13 @@ public class FormDialog {
     @FindBy(name = "prop_cm_description")
     private WebElement descriptionTextInput;
 
+    @FindBy(name = "prop_cm_content")
+    private WebElement contentTextInput;
+
     @FindBy(id = "ALF_CREATE_CONTENT_DIALOG_OK")
     private WebElement saveButton;
 
-    @FindBy(css = "button[id$='cancel-button']")
+    @FindBy(id = "ALF_CREATE_CONTENT_DIALOG_CANCEL_label")
     private WebElement cancelButton;
 
 
@@ -38,6 +42,8 @@ public class FormDialog {
     public WebElement getDescriptionTextInput(){
         return descriptionTextInput;
     }
+
+    public WebElement getContentTextInput() { return contentTextInput; }
 
     public WebElement getSaveButton(){
         return saveButton;

@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by p3700471 on 14/09/16.
  */
-public class WorkPanel {
+public class ToolPanel
+{
 
     @FindBy(css = ".alf-create-icon")
     private WebElement createButton;
@@ -14,8 +15,9 @@ public class WorkPanel {
     @FindBy(xpath = ".//td[contains(text(), 'Folder')]")
     private WebElement createFolderButton;
 
-    @FindBy(id = "ALF_CREATE_CONTENT_DIALOG_OK")
-    private WebElement createFolderDialogCreateButon;
+    @FindBy(xpath = ".//td[contains(text(), 'Text Document')]")
+    private WebElement createFileButton;
+
 
     public WebElement getCreateButton() { return createButton; }
 
@@ -23,11 +25,6 @@ public class WorkPanel {
         return createFolderButton;
     }
 
-
-//    public FormDialog openCreateFolderDialog() {
-//        createFolderButton.click();
-//        return PageFactory.initElements(webDriver, FormDialog.class);
-//    }
-
+    public WebElement getCreateFileButton() { return createFileButton; }
 
 }
