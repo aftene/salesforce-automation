@@ -21,24 +21,12 @@ public class AlfrescoRepositoryTabList {
     private WebElement searchTab;
 
 
-    public WebElement getPersonalFilesTab()
-    {
-       return personalFilesTab;
-    }
+    public void clickOnPersonalFilesTab() { personalFilesTab.click(); }
 
-    public WebElement getRepositoryTab()
-    {
-        return repositoryTab;
-    }
+    public void clickOnrepositoryTab() { repositoryTab.click(); }
 
-    public WebElement getSitesTab()
-    {
-        return sitesTab;
-    }
+    public void clickOnsitesTab() { sitesTab.click(); }
 
-    public WebElement getSearchTab()
-    {
-        return searchTab;
-    }
+    public void clickOnsearchTab() { searchTab.click(); }
 
 }

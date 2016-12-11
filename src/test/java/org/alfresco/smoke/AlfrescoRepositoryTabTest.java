@@ -1,29 +1,25 @@
 package org.alfresco.smoke;
 
-import org.alfresco.helper.Utils;
+import org.alfresco.base.BaseTest;
 import org.alfresco.po.common.Login;
 import org.alfresco.po.salesforce.AlfrescoRepositoryTabList;
-import org.junit.Before;
-import org.junit.Test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 /**
- * Created by p3700509 on 14/09/16.
+ * @author Iulian Aftene
  */
-public class AlfrescoRepositoryTabTest
+public class AlfrescoRepositoryTabTest extends BaseTest
 {
-
-    private WebDriver webDriver;
-
-    @Before
-    public void setUp()
+    @BeforeClass
+    public void BeforeClass()
     {
-        webDriver = new FirefoxDriver();
-        webDriver.get(Utils.GetProperty("salesforcePages.properties","alfrescoRepositoryTab"));
+        openSalesforceTab(webDriver,"alfrescoRepositoryTab");
 
         PageFactory.initElements(webDriver, Login.class).loginToAlfresco();
     }
@@ -33,16 +29,16 @@ public class AlfrescoRepositoryTabTest
 
         AlfrescoRepositoryTabList tabListTest = PageFactory.initElements(webDriver, AlfrescoRepositoryTabList.class);
 
-        tabListTest.getSitesTab().click();
-        tabListTest.getSearchTab().click();
-        tabListTest.getRepositoryTab().click();
-        tabListTest.getPersonalFilesTab().click();
+        tabListTest.clickOnsitesTab();
+        tabListTest.clickOnsearchTab();
+        tabListTest.clickOnrepositoryTab();
+        tabListTest.clickOnPersonalFilesTab();
     }
 
     @AfterClass
     public void afterClass()
     {
         webDriver.close();
-        webDriver.quit();
+        //webDriver.quit();
     }
 }

@@ -19,14 +19,16 @@ import com.gargoylesoftware.htmlunit.javascript.configuration.WebBrowser;
 public class Utils {
 
     protected static final String timeout = "50";
-    public static WebDriver webDriver = new FirefoxDriver();
+    //public WebDriver webDriver;
     protected static WebDriverWait wait;
 
-    public static String GetProperty(String propertiesFile ,String propName)
+    public static String getProperty(String propertiesFile ,String propName)
     {
         String returnedProp = null;
-        try {
-            FileReader properties = new FileReader("/Users/p3700509/Documents/salesforce-automation/src/test/resources/" + propertiesFile);
+        try
+        {
+            FileReader properties = new FileReader(
+                "/Users/p3700509/Documents/salesforce-automation/src/test/resources/" + propertiesFile);
             Properties property = new Properties();
             property.load(properties);
             returnedProp = property.getProperty(propName);
@@ -50,9 +52,6 @@ public class Utils {
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
-    public static void openSalesforceTab(String tabToOpen){
-        webDriver.get(GetProperty("salesforcePages.properties",tabToOpen));
 
-    }
 
 }

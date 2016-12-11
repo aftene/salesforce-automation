@@ -1,6 +1,6 @@
 package org.alfresco.smoke;
 
-import org.alfresco.helper.Utils;
+import static org.alfresco.helper.Utils.getProperty;
 import org.alfresco.po.common.Login;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,7 +20,7 @@ public class TestRunner {
     public void setUp()
     {
         webDriver = new FirefoxDriver();
-        webDriver.get(Utils.GetProperty("salesforcePages.properties","alfrescoRepositoryTab"));
+        webDriver.get(getProperty("salesforcePages.properties","alfrescoRepositoryTab"));
     }
 
     @Test
@@ -32,6 +32,7 @@ public class TestRunner {
         loginPage.enterUserName();
         loginPage.enterPassword();
         loginPage.clickLoginButton();
+
     }
 
     @AfterClass

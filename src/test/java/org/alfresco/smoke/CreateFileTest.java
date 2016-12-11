@@ -1,31 +1,27 @@
 package org.alfresco.smoke;
 
+import org.alfresco.base.BaseTest;
 import org.alfresco.helper.Utils;
 import org.alfresco.po.common.Login;
 import org.alfresco.po.salesforce.ToolPanel;
-
 import org.alfresco.po.share.CreateDialog;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
-
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 
 /**
- * Created by p3700509 on 16/10/16.
+ * @author Iulian Aftene
  */
-public class CreateFileTest
+public class CreateFileTest extends BaseTest
 {
-    private WebDriver webDriver;
-
     @BeforeClass
     public void BeforeClass()
     {
-        webDriver = new FirefoxDriver();
-        webDriver.get(Utils.GetProperty("salesforcePages.properties","alfrescoRepositoryTab"));
+        openSalesforceTab(webDriver,"alfrescoRepositoryTab");
 
         //initialize login page objects
         PageFactory.initElements(webDriver, Login.class).loginToAlfresco();
@@ -36,23 +32,23 @@ public class CreateFileTest
     public void createFileTest()
     {
         ToolPanel toolPanel = PageFactory.initElements(webDriver, ToolPanel.class);
-        toolPanel.getCreateButton().click();
-        toolPanel.getCreateFileButton().click();
+        toolPanel.clickOnCreateButton();
+        toolPanel.clickOnCreateFileButton();
 
 
         CreateDialog createDialog = PageFactory.initElements(webDriver, CreateDialog.class);
-        createDialog.getNameTextInput().sendKeys("file_name_test");
-        createDialog.getTitleTextInput().sendKeys("file_title_test");
-        createDialog.getDescriptionTextInput().sendKeys("file_description_test");
-        createDialog.getContentTextInput().sendKeys("file_content_test");
+        createDialog.typeInNameTextInput("file_name_test");
+        createDialog.tyoeInTitleTextInput("file_title_test");
+        createDialog.typeInDescriptionTextInput("file_description_test");
+        createDialog.typeInContentTextInput("file_content_test");
 
-        createDialog.getCancelButton().click();
+        createDialog.clickOnCancelButton();
     }
 
     @AfterClass
     public void afterClass()
     {
         webDriver.close();
-        webDriver.quit();
+        //webDriver.quit();
     }
 }

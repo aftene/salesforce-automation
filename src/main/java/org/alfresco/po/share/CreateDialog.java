@@ -1,5 +1,6 @@
 package org.alfresco.po.share;
 
+import org.alfresco.po.salesforce.SearchTab;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
@@ -31,25 +32,15 @@ public class CreateDialog
     private WebElement cancelButton;
 
 
-    public WebElement getNameTextInput(){
-        return nameTextInput;
-    }
+    public void typeInNameTextInput(String name) { nameTextInput.sendKeys(name); }
 
-    public WebElement getTitleTextInput(){
-        return titleTextInput;
-    }
+    public void tyoeInTitleTextInput(String title) { titleTextInput.sendKeys(title); }
 
-    public WebElement getDescriptionTextInput(){
-        return descriptionTextInput;
-    }
+    public void typeInDescriptionTextInput(String description) { descriptionTextInput.sendKeys(description); }
 
-    public WebElement getContentTextInput() { return contentTextInput; }
+    public void typeInContentTextInput(String contet) { contentTextInput.sendKeys(contet); }
 
-    public WebElement getSaveButton(){
-        return saveButton;
-    }
+    public void clickOnSaveButton() { saveButton.click(); }
 
-    public WebElement getCancelButton() {
-        return cancelButton;
-    }
+    public void clickOnCancelButton() { cancelButton.click(); }
 }

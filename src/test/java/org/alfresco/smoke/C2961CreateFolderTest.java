@@ -1,5 +1,6 @@
 package org.alfresco.smoke;
 
+import org.alfresco.base.BaseTest;
 import org.alfresco.helper.Utils;
 import org.alfresco.po.common.Login;
 import org.alfresco.po.salesforce.ToolPanel;
@@ -12,17 +13,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 /**
- * Created by p3700471 on 14/09/16.
+ * @author Iulian Aftene
  */
-public class C2961CreateFolderTest {
+public class C2961CreateFolderTest extends BaseTest
+{
 
-    private WebDriver webDriver;
+    //WebDriver webDriver = new FirefoxDriver();
 
     @BeforeClass
-    public void beforeClass()
+    public void BeforeClass()
     {
-        webDriver = new FirefoxDriver();
-        webDriver.get(Utils.GetProperty("salesforcePages.properties","alfrescoRepositoryTab"));
+        openSalesforceTab(webDriver,"alfrescoRepositoryTab");
 
         //initialize login page objects
         PageFactory.initElements(webDriver, Login.class).loginToAlfresco();
@@ -33,22 +34,22 @@ public class C2961CreateFolderTest {
     {
         ToolPanel toolPanel = PageFactory.initElements(webDriver, ToolPanel.class);
 
-        toolPanel.getCreateButton().click();
-        toolPanel.getCreateFolderButton().click();
+        toolPanel.clickOnCreateButton();
+        toolPanel.clickOnCreateFolderButton();
 
         CreateDialog createDialog = PageFactory.initElements(webDriver, CreateDialog.class);
 
-        createDialog.getNameTextInput().sendKeys("folder_name_test");
-        createDialog.getTitleTextInput().sendKeys("folder_title_test");
-        createDialog.getDescriptionTextInput().sendKeys("folder_description_test");
+        createDialog.typeInNameTextInput("folder_name_test");
+        createDialog.tyoeInTitleTextInput("folder_title_test");
+        createDialog.typeInDescriptionTextInput("folder_description_test");
 
-        createDialog.getSaveButton().click();
+        createDialog.clickOnSaveButton();
     }
 
     @AfterClass
     public void afterClass()
     {
         webDriver.close();
-        webDriver.quit();
+        //webDriver.quit();
     }
 }

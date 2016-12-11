@@ -19,12 +19,10 @@ public class ToolPanel
     private WebElement createFileButton;
 
 
-    public WebElement getCreateButton() { return createButton; }
+    public void clickOnCreateButton() { createButton.click(); }
 
-    public WebElement getCreateFolderButton() {
-        return createFolderButton;
-    }
+    public void clickOnCreateFolderButton() { createFolderButton.click(); }
 
-    public WebElement getCreateFileButton() { return createFileButton; }
+    public void clickOnCreateFileButton() { createFileButton.click(); }
 
 }
