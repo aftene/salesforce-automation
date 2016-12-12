@@ -35,7 +35,6 @@ public class CreateFileTest extends BaseTest
         toolPanel.clickOnCreateButton();
         toolPanel.clickOnCreateFileButton();
 
-
         CreateDialog createDialog = PageFactory.initElements(webDriver, CreateDialog.class);
         createDialog.typeInNameTextInput("file_name_test");
         createDialog.tyoeInTitleTextInput("file_title_test");
@@ -49,6 +48,5 @@ public class CreateFileTest extends BaseTest
     public void afterClass()
     {
         webDriver.close();
-        //webDriver.quit();
     }
 }

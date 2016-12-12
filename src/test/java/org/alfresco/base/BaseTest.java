@@ -18,8 +18,9 @@ public class BaseTest
 
     }
 
-    public  void openSalesforceTab(WebDriver webDriver, String tabToOpen){
+    public  void openSalesforceTab(WebDriver webDriver, String tabToOpen)
+    {
         webDriver.get(getProperty("salesforcePages.properties",tabToOpen));
-
     }
+
 }
